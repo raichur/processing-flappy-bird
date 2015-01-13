@@ -21,11 +21,10 @@ void draw() { // Runs 60 times/second
     imageMode(CORNER);
     image(backImg, x, 0);
     image(backImg, x + backImg.width, 0); 
-    image(birdImg, width/2, y);
     x -= 6; // Make the background move to create the illusion that the bird is moving. 
     vy += 1; // Gravity (acceleration of 1px/second^2)
     y += vy; // Move down by 1px/second
-    
+    if(x == -1000) x = 0;
     for(int i = 0; i < 2; i++) {
       imageMode(CENTER);
       image(wallImg, wx[i], wy[i] - (wallImg.height/2 + 100));
@@ -43,6 +42,7 @@ void draw() { // Runs 60 times/second
       }
       wx[i] -= 6;
     }
+    image(birdImg, width/2, y);
     text(""+score, width/2-15, 700);    
     
   } else {
