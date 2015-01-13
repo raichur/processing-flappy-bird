@@ -11,6 +11,8 @@ int[] wy = new int[2];
 
 void setup() {
   size(600, 800); // Canvas size
+  fill(0);
+  textSize(40);
 }
 
 void draw() { // Runs 60 times/second
@@ -37,10 +39,12 @@ void draw() { // Runs 60 times/second
       }
       wx[i] -= 6;
     }
+    text(""+score, width/2-15, 700);    
     
   } else {
     imageMode(CENTER); 
     image(backImg, width/2, height/2);
+    text("High Score: " + high_score, 50, width);
   }
 }
 
