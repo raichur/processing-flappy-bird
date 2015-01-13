@@ -27,6 +27,7 @@ void draw() { // Runs 60 times/second
     y += vy; // Move down by 1px/second
     
     for(int i = 0; i < 2; i++) {
+      imageMode(CENTER);
       image(wallImg, wx[i], wy[i] - (wallImg.height/2 + 100));
       image(wallImg, wx[i], wy[i] + (wallImg.height/2 + 100));
       if(wx[i] < 0) {
@@ -36,6 +37,9 @@ void draw() { // Runs 60 times/second
       if(wx[i] == width/2) {
         score++;
         high_score = max(score, high_score);
+      }
+      if(y > height || y < 0 || (abs(width/2 - wx[i]) < 25 && abs(y - wy[i]) > 199)) {
+        game_state = 1;
       }
       wx[i] -= 6;
     }
