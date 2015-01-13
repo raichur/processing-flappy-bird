@@ -26,3 +26,7 @@ void draw() { // Runs 60 times/second
     image(backImg, width/2, height/2);
   }
 }
+
+void mousePressed() {
+  vy = -17;
+}
