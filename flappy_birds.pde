@@ -1,8 +1,8 @@
 // Resources
-PImage backImg = loadImage("http://i.imgur.com/cXaR0vS.png");
-PImage birdImg = loadImage("http://i.imgur.com/mw0ai3K.png");
-PImage wallImg = loadImage("http://i.imgur.com/4SUsUuc.png");
-PImage startImg = loadImage("http://i.imgur.com/U6KEwxe.png");
+PImage backImg;
+PImage birdImg;
+PImage wallImg;
+PImage startImg;
 
 // Variables
 int x = -200, y, vy = 1, game_state = 1, score = 0, high_score;
@@ -11,6 +11,10 @@ int[] wy = new int[2];
 
 void setup() {
   size(600, 800); // Canvas size
+  backImg = loadImage("bg.png");
+  birdImg = loadImage("bird.png");
+  wallImg = loadImage("wall.png");
+  startImg = loadImage("splash.png");
   fill(0);
   textSize(40);
 }
@@ -47,7 +51,7 @@ void draw() { // Runs 60 times/second
     
   } else {
     imageMode(CENTER); 
-    image(backImg, width/2, height/2);
+    image(startImg, width/2, height/2);
     text("High Score: " + high_score, 50, width);
   }
 }
